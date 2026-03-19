@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Growth Agency | Scale While You Sleep</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables & Theme */
+        :root {
+            --bg-dark: #0f1115;
+            --bg-darker: #07080a;
+            --text-main: #f8f9fa;
+            --text-muted: #adb5bd;
+            --accent-blue: #00f2fe;
+            --accent-purple: #4facfe;
+            --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            --cta-gradient: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            --cta-glow: rgba(255, 107, 107, 0.4);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --danger: #ff4b4b;
+            --success: #00e676;
+            --urgency: #ffae42;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        /* Typography & Utilities */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Animations & Keyframes */
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.4); }
+            50% { transform: scale(1.02); box-shadow: 0 0 15px 0 rgba(0, 242, 254, 0.1); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(211, 47, 47, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+        }
+
+        /* Top Urgency Banner */
+        .urgency-banner {
+            background: var(--urgency);
+            color: #000;
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .urgency-pulse {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #d32f2f;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            padding: 15px 30px;
+            background: rgba(15, 17, 21, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            top: 15px;
+            background: rgba(15, 17, 21, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--accent-gradient);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .btn-cta {
+            background: var(--cta-gradient);
+            box-shadow: 0 4px 20px var(--cta-glow);
+            font-size: 1.1rem;
+        }
+
+        .btn-cta:hover:not(:disabled) {
+            box-shadow: 0 8px 30px var(--cta-glow);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-blue);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 242, 254, 0.1);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Animations (Reveal In & Out) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            filter: blur(10px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            will-change: transform, opacity, filter;
+        }
+
+        .reveal.reveal-left { transform: translateX(-50px); }
+        .reveal.reveal-right { transform: translateX(50px); }
+        .reveal.reveal-scale { transform: scale(0.8); }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0) scale(1);
+            filter: blur(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            background-color: var(--bg-dark);
+        }
+
+        /* SVG Grid Background for Hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1"/></svg>');
+            background-size: 40px 40px;
+            z-index: 0;
+            pointer-events: none;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            animation: subtlePulse 3s infinite ease-in-out;
+            
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Trust Banner */
+        .trust-banner {
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 40px 0;
+            background: rgba(15, 17, 21, 0.5);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            opacity: 0.5;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+
+        .trust-logos span:hover {
+            opacity: 1;
+            color: var(--accent-blue);
+        }
+
+        /* Problem/Solution Matrix */
+        .matrix-section {
+            background-color: var(--bg-darker);
+        }
+
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 40px;
+        }
+
+        .matrix-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .matrix-card:hover { transform: translateY(-5px); }
+        .matrix-card.old-way { border-top: 4px solid var(--danger); }
+        .matrix-card.old-way:hover { box-shadow: 0 10px 30px rgba(255, 75, 75, 0.1); }
+        .matrix-card.new-way { border-top: 4px solid var(--success); background: rgba(0, 230, 118, 0.03); }
+        .matrix-card.new-way:hover { box-shadow: 0 10px 30px rgba(0, 230, 118, 0.1); }
+        .matrix-card h3 { font-size: 1.8rem; margin-bottom: 24px; }
+        
+        .matrix-list { list-style: none; }
+        .matrix-list li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        .old-way .matrix-list li::before { content: '✕'; color: var(--danger); font-weight: bold; }
+        .new-way .matrix-list li::before { content: '✓'; color: var(--success); font-weight: bold; }
+
+        /* The Framework (How We Contribute) */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: 20px;
+            position: relative;
+        }
+
+        .framework-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: var(--glass-border);
+            z-index: 0;
+        }
+
+        @media (max-width: 992px) {
+            .framework-grid::before { display: none; }
+            .framework-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        .framework-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-dark);
+            border: 2px solid var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-blue);
+            margin: 0 auto 20px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+        }
+
+        .framework-step h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .framework-step p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+
+        /* Core Services Section - CSS-DRIVEN CARD STACK EFFECT */
+        .services-section { background-color: var(--bg-darker); }
+        
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        .service-card {
+            background: rgba(15, 17, 21, 0.96); 
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            padding: 40px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+            position: sticky;
+            box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Sticky Offsets to Create the Stack Centered in Viewport on All Devices */
+        .service-card:nth-child(1) { top: max(80px, 20vh); z-index: 10; }
+        .service-card:nth-child(2) { top: calc(max(80px, 20vh) + 20px); z-index: 11; }
+        .service-card:nth-child(3) { top: calc(max(80px, 20vh) + 40px); z-index: 12; }
+        .service-card:nth-child(4) { top: calc(max(80px, 20vh) + 60px); z-index: 13; }
+        .service-card:nth-child(5) { top: calc(max(80px, 20vh) + 80px); z-index: 14; }
+        .service-card:nth-child(6) { top: calc(max(80px, 20vh) + 100px); z-index: 15; }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+            border-radius: 20px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 -20px 50px rgba(0, 242, 254, 0.15);
+        }
+
+        .service-card:hover::before { opacity: 0.03; }
+        .service-content { position: relative; z-index: 1; }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        
+        .service-features {
+            list-style: none;
+            padding-top: 15px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .service-features li {
+            font-size: 0.85rem;
+            color: #d1d5db;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .service-features li::before { content: '→'; color: var(--accent-blue); }
+
+        /* Trust / Proof Section */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: 30px;
+        }
+
+        .proof-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+            border: 1px solid var(--glass-border);
+            border-top: 2px solid var(--accent-purple);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .proof-metric {
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .proof-text {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Interactive AI Showcase */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .chat-ui-container {
+            background: var(--bg-dark);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 450px;
+        }
+
+        .chat-header {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-dots { display: flex; gap: 6px; }
+        .chat-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .chat-dot.red { background: #ff5f56; }
+        .chat-dot.yellow { background: #ffbd2e; }
+        .chat-dot.green { background: #27c93f; }
+
+        .chat-title { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+
+        .chat-body {
+            padding: 24px;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .chat-msg {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            animation: messageAppear 0.4s forwards ease-out;
+        }
+
+        @keyframes messageAppear {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg-user {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .msg-ai {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            color: #e0fbfc;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: rgba(0, 242, 254, 0.05);
+            border-radius: 16px;
+            align-self: flex-start;
+            width: fit-content;
+            display: none;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite ease-in-out both;
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typingBounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Lead Magnet Footer / Contact */
+        .footer-cta {
+            position: relative;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .scarcity-box {
+            background: rgba(255, 75, 75, 0.05);
+            border: 1px dashed var(--danger);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px auto 0;
+            display: inline-block;
+            max-width: 600px;
+        }
+
+        .form-container {
+            max-width: 650px;
+            margin: 40px auto 0;
+            background: var(--glass-bg);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            position: relative;
+            min-height: 400px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23adb5bd" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position-x: 95%;
+            background-position-y: 50%;
+            cursor: pointer;
+        }
+        
+        select.form-control option {
+            background-color: #1a1d24; /* Sleek dark background for dropdown depth */
+            color: var(--text-main);
+            padding: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        select.form-control option:checked {
+            background-color: var(--accent-blue);
+            color: var(--bg-dark);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Success Screen CSS */
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+            animation: messageAppear 0.5s ease-out forwards;
+        }
+
+        .success-icon {
+            font-size: 4.5rem;
+            color: var(--success);
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
+        }
+
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--bg-darker);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .chat-ui-container { margin-top: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-padding { padding: 80px 0; }
+            .form-container { padding: 30px 20px; }
+            .section-header h2 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Urgency Banner -->
+    <div class="urgency-banner">
+        <span class="urgency-pulse"></span>
+        Limited Capacity: We are only onboarding 3 new clients this month. <strong>2 spots remaining.</strong>
+    </div>
+
+    <!-- Modern Floating Nav -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Evolve<span class="text-gradient">AI</span></a>
+            <ul class="nav-links">
+                <li><a href="#framework">Methodology</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#showcase">AI Demo</a></li>
+            </ul>
+            <a href="#audit" class="btn btn-cta" style="padding: 10px 24px; font-size: 0.9rem;">Get Free Audit</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero reveal reveal-scale">
+        <div class="container hero-content">
+            <div class="hero-badge">Next-Gen Digital Agency</div>
+            <h1>Scale Your Business with <span class="text-gradient">AI-Driven Systems</span> While You Sleep.</h1>
+            <p>We build high-performance digital ecosystems and AI-powered workforces that turn traffic into loyal customers, automatically.</p>
+            <a href="#audit" class="btn btn-cta" style="padding: 18px 40px; margin-top: 10px;">Request Free Strategy Audit</a>
+            
+            <div class="trust-signals" style="margin-top: 40px; font-size: 0.85rem; color: var(--text-muted); display: flex; justify-content: center; align-items: center; gap: 20px;">
+                <span>✓ <span class="counter" data-target="100">0</span>% Data-Driven</span>
+                <span>•</span>
+                <span>✓ Seamless Integration</span>
+                <span>•</span>
+                <span>✓ Guaranteed ROI</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Attention Banner -->
+    <section class="trust-banner reveal">
+        <div class="container">
+            <p style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;">Trusted by hyper-growth companies to automate operations</p>
+            <div class="trust-logos">
+                <span>AeroTech</span>
+                <span>OmniCommerce</span>
+                <span>NexusHealth</span>
+                <span>VertexCap</span>
+                <span>Stratos</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matrix Section (Pain vs Solution) -->
+    <section id="matrix" class="section-padding matrix-section">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <h2>Stop Operating in the Past</h2>
+                <p>The digital landscape has evolved. Relying on manual labor, scattered tools, and guesswork is burning your capital and capping your growth.</p>
+            </div>
+
+            <div class="matrix-grid">
+                <div class="matrix-card old-way reveal reveal-left delay-1">
+                    <h3>The Old Way (Manual)</h3>
+                    <ul class="matrix-list">
+                        <li>Burning cash on ads with leaky landing pages</li>
+                        <li>Answering every customer support ticket manually</li>
+                        <li>Using patchwork software that doesn't sync data</li>
+                        <li>Losing hot leads to competitors while you sleep</li>
+                        <li>Making growth decisions based on "gut feelings"</li>
+                    </ul>
+                </div>
+                
+                <div class="matrix-card new-way reveal reveal-right delay-2">
+                    <h3>The New Way <span class="text-gradient">(Automated)</span></h3>
+                    <ul class="matrix-list">
+                        <li>High-converting funnels that maximize ad spend</li>
+                        <li>AI Agents handling 80% of inquiries instantly</li>
+                        <li>Unified, seamless digital infrastructure</li>
+                        <li>Waking up to pre-qualified, booked appointments</li>
+                        <li>Data-driven control over every financial metric</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Contribute (The Framework) -->
+    <section id="framework" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <h2>The EvolveAI <span class="text-gradient">Growth Protocol</span></h2>
+                <p>We don't guess. We engineer results. Here is exactly how we transform your business from a manual grind into an automated powerhouse.</p>
+            </div>
+
+            <div class="framework-grid">
+                <div class="framework-step reveal reveal-scale delay-1">
+                    <div class="step-number">0<span class="counter" data-target="1">0</span></div>
+                    <h3>Deep-Dive Audit</h3>
+                    <p>We analyze your current funnels, operations, and bottlenecks to identify exactly where you are losing revenue and time.</p>
+                </div>
+                <div class="framework-step reveal reveal-scale delay-2">
+                    <div class="step-number">0<span class="counter" data-target="2">0</span></div>
+                    <h3>Custom Architecture</h3>
+                    <p>We design a tailored digital ecosystem—mapping out web UI, automation triggers, and AI agent flows specifically for your audience.</p>
+                </div>
+                <div class="framework-step reveal reveal-scale delay-3">
+                    <div class="step-number">0<span class="counter" data-target="3">0</span></div>
+                    <h3>System Deployment</h3>
+                    <p>Our engineers build and integrate your high-speed website, CRM automations, and custom-trained AI chatbots seamlessly.</p>
+                </div>
+                <div class="framework-step reveal reveal-scale delay-4">
+                    <div class="step-number">0<span class="counter" data-target="4">0</span></div>
+                    <h3>Scale & Optimize</h3>
+                    <p>Once live, we monitor the data. We continuously refine the AI models and conversion rates to push your ROI higher month over month.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Deliverables) -->
+    <section id="services" class="section-padding services-section">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <h2>Our Deliverable <span class="text-gradient">Services</span></h2>
+                <p>We provide enterprise-grade digital deliverables designed entirely around one metric: Business Growth.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card reveal delay-1">
+                    <div class="service-content">
+                        <div class="service-icon">✦</div>
+                        <h3>High-Converting Web & Landing Pages</h3>
+                        <p>Psychologically optimized, lightning-fast web experiences built strictly to convert visitors into buyers.</p>
+                        <ul class="service-features">
+                            <li>Fully developed, ready-to-launch funnels</li>
+                            <li>Sub-second loading architecture</li>
+                            <li>A/B Tested User Interfaces delivered</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card reveal delay-2">
+                    <div class="service-content">
+                        <div class="service-icon">⟡</div>
+                        <h3>Custom AI Sales Agents</h3>
+                        <p>Fully trained AI chatbots installed on your site to engage traffic, answer complex objections, and book meetings 24/7/365.</p>
+                        <ul class="service-features">
+                            <li>Agent trained on your specific business data</li>
+                            <li>Direct calendar booking integrations</li>
+                            <li>Multi-language conversational support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card reveal delay-3">
+                    <div class="service-content">
+                        <div class="service-icon">⚡</div>
+                        <h3>Automated CRM & Workflows</h3>
+                        <p>We deliver a fully connected tech stack, eliminating manual data entry and automating your follow-ups.</p>
+                        <ul class="service-features">
+                            <li>Complete Zapier / Make.com architectures</li>
+                            <li>Automated email & SMS lead nurturing sequences</li>
+                            <li>Abandoned cart recovery systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card reveal delay-1">
+                    <div class="service-content">
+                        <div class="service-icon">📊</div>
+                        <h3>Real-Time Analytics Dashboards</h3>
+                        <p>Centralized platforms built for you, giving you x-ray vision into your marketing spend and customer lifetime value.</p>
+                        <ul class="service-features">
+                            <li>Custom Looker/Tableau dashboard deployment</li>
+                            <li>Live tracking of revenue and lead flow</li>
+                            <li>Full-funnel attribution modeling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="service-card reveal delay-2">
+                    <div class="service-content">
+                        <div class="service-icon">🎯</div>
+                        <h3>Omni-Channel Ad Campaigns</h3>
+                        <p>Ready-to-launch paid media campaigns (Meta, Google, TikTok) that feed high-intent traffic directly into your new funnel.</p>
+                        <ul class="service-features">
+                            <li>Predictive audience targeting setup</li>
+                            <li>Dynamic ad creative generation packages</li>
+                            <li>Continuous ad account management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="service-card reveal delay-3">
+                    <div class="service-content">
+                        <div class="service-icon">🧠</div>
+                        <h3>SEO-Optimized Content Hubs</h3>
+                        <p>We build programmatic SEO pipelines and AI-driven content clusters to dominate your niche's search engine results.</p>
+                        <ul class="service-features">
+                            <li>Entity-based semantic SEO strategy</li>
+                            <li>Automated blog and content publication</li>
+                            <li>High-authority backlink acquisition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Trust Section -->
+    <section class="section-padding" style="background: var(--bg-dark);">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <h2>Don't Take Our Word For It. <br><span class="text-gradient">Look At The Data.</span></h2>
+            </div>
+            
+            <div class="proof-grid">
+                <div class="proof-card reveal delay-1">
+                    <span class="text-gradient proof-metric"><span class="counter" data-target="140">0</span>%</span>
+                    <h4 style="margin-bottom: 8px;">Increase in Conversions</h4>
+                    <p class="proof-text">For a B2B SaaS client after deploying our tailored CRO architecture and AI onboarding agent.</p>
+                </div>
+                <div class="proof-card reveal delay-2">
+                    <span class="text-gradient proof-metric"><span class="counter" data-target="120">0</span>+</span>
+                    <h4 style="margin-bottom: 8px;">Hours Saved Monthly</h4>
+                    <p class="proof-text">For an E-commerce brand by automating inventory tracking, support tickets, and CRM updates.</p>
+                </div>
+                <div class="proof-card reveal delay-3">
+                    <span class="text-gradient proof-metric"><span class="counter" data-target="42">0</span>%</span>
+                    <h4 style="margin-bottom: 8px;">Decrease in CPA</h4>
+                    <p class="proof-text">Achieved for a local service business by sealing funnel leaks and routing leads via AI SMS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive AI Showcase -->
+    <section id="showcase" class="section-padding services-section" style="position: relative; overflow: hidden;">
+        <div class="container showcase-grid">
+            
+            <div class="reveal reveal-left">
+                <h2>Meet Your New <br><span class="text-gradient">Digital Workforce</span></h2>
+                <p style="color: var(--text-muted); margin: 20px 0; font-size: 1.1rem;">
+                    Imagine having a senior sales rep, a customer support agent, and a data analyst working for your business every second of the day, without demanding a salary or taking sick days.
+                </p>
+                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem;">
+                    Our systems identify intent and drive conversions in real-time. Watch the simulation to see how EvolveAI analyzes and scales businesses.
+                </p>
+                <button id="start-sim-btn" class="btn btn-outline">Run Live Simulation</button>
+            </div>
+
+            <!-- Chat UI -->
+            <div class="chat-ui-container reveal reveal-right delay-2">
+                <div class="chat-header">
+                    <div class="chat-dots">
+                        <div class="chat-dot red"></div>
+                        <div class="chat-dot yellow"></div>
+                        <div class="chat-dot green"></div>
+                    </div>
+                    <div class="chat-title">EvolveAI Core Interface - Status: Active</div>
+                </div>
+                <div class="chat-body" id="chat-body">
+                    <!-- Messages will be injected here via JS -->
+                    <div class="typing-indicator" id="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lead Magnet / Contact Footer -->
+    <section id="audit" class="footer-cta">
+        <div class="container">
+            <div class="reveal">
+                <h2 style="font-size: 3rem; margin-bottom: 16px;">Ready to Evolve?</h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 650px; margin: 0 auto;">Request your comprehensive Business Growth Audit. We'll identify exactly where you are losing revenue and map out the exact AI architecture to fix it.</p>
+                
+                <div class="scarcity-box">
+                    <strong style="color: var(--danger);">⚠️ High Demand Warning:</strong> We dedicate intense engineering resources to every audit. We can only accept <strong>2 more businesses</strong> this month.
+                </div>
+            </div>
+
+            <div class="form-container reveal reveal-scale delay-2">
+                
+                <!-- The Form -->
+                <div id="form-content">
+                    <form id="audit-form" name="submit-to-google-sheet">
+                        
+                        <!-- Hidden fields to pass the Client ID, Date, and Time to Google Sheets -->
+                        <input type="hidden" name="Client ID" id="client-id-input">
+                        <input type="hidden" name="Submission Date" id="submission-date-input">
+                        <input type="hidden" name="Submission Time" id="submission-time-input">
+
+                        <!-- HONEYPOT FIELD (Anti-Bot Security) -->
+                        <!-- Humans cannot see this, but automated scrapers will fill it out -->
+                        <div style="opacity: 0; position: absolute; top: -9999px; left: -9999px;" aria-hidden="true">
+                            <label for="bot-check">Please leave this field blank</label>
+                            <input type="text" name="bot-check" id="bot-check" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Full Name *</label>
+                            <!-- Added 'name' attributes for Google Sheets mapping -->
+                            <input type="text" name="Full Name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Mobile Number *</label>
+                                <input type="tel" name="Mobile Number" class="form-control" placeholder="+91 9876543210" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Work Email *</label>
+                                <input type="email" name="Work Email" class="form-control" placeholder="example@domain.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Subject *</label>
+                            <select name="Subject" class="form-control" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="Free Strategy Audit">Free Strategy Audit</option>
+                                <option value="Web & Landing Pages">Web & Landing Pages</option>
+                                <option value="AI Sales Agents">AI Sales Agents</option>
+                                <option value="CRM & Automation">CRM & Automation</option>
+                                <option value="Other Inquiry">Other Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Message *</label>
+                            <textarea name="Message" class="form-control" placeholder="Tell us about your business goals and current bottlenecks..." required></textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 30px;">
+                            <button type="submit" id="submit-btn" class="btn btn-cta" style="width: 100%; padding: 18px;">Claim My Free Audit</button>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 16px; text-align: center;">🔒 100% Secure. We never share your data.</p>
+                    </form>
+                </div>
+
+                <!-- Custom Success Screen (Hidden initially) -->
+                <div id="success-screen" class="success-screen">
+                    <div class="success-icon">✓</div>
+                    <h3 style="font-size: 2rem; margin-bottom: 15px;">Audit Request Confirmed!</h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">
+                        Thank you for reaching out. Our lead strategist has received your details and will contact you shortly to schedule your free strategy audit.
+                    </p>
+                    <button class="btn btn-outline" onclick="resetForm()">Return</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EvolveAI Agency. Engineered for Conversion and Scale.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Two-Way Reveal Animations (In & Out)
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            // FIX: Force top elements to show immediately in case IntersectionObserver is delayed on mobile
+            document.querySelectorAll('.hero.reveal').forEach(el => {
+                el.classList.add('is-visible');
+            });
+            
+            const revealOptions = {
+                threshold: 0.1, 
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    } else {
+                        if(entry.boundingClientRect.top > 0) {
+                            entry.target.classList.remove('is-visible');
+                        }
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => revealOnScroll.observe(el));
+
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }, 100);
+
+            // 2. Navbar Background change on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // 3. Simulated AI Chat Logic
+            const chatBody = document.getElementById('chat-body');
+            const typingIndicator = document.getElementById('typing-indicator');
+            const startSimBtn = document.getElementById('start-sim-btn');
+            
+            const chatScenario = [
+                { role: 'user', text: "Run system diagnostics on typical agency client." },
+                { role: 'ai', text: "Analyzing traffic... High bounce rate detected. 68% of visitors leave without booking a call." },
+                { role: 'user', text: "Initiate EvolveAI protocol." },
+                { role: 'ai', text: "Deploying high-conversion UI framework. Activating 24/7 AI Sales Agent..." },
+                { role: 'ai', text: "Result: Funnel leakage sealed. Lead capture increased by 42%. 15 new meetings booked while owner slept." }
+            ];
+
+            let isSimRunning = false;
+
+            startSimBtn.addEventListener('click', () => {
+                if (isSimRunning) return;
+                isSimRunning = true;
+                
+                const messages = chatBody.querySelectorAll('.chat-msg');
+                messages.forEach(msg => msg.remove());
+                
+                startSimBtn.textContent = "Simulation Running...";
+                startSimBtn.style.opacity = '0.5';
+                startSimBtn.style.cursor = 'default';
+                
+                runChatSequence(0);
+            });
+
+            function runChatSequence(index) {
+                if (index >= chatScenario.length) {
+                    setTimeout(() => {
+                        startSimBtn.textContent = "Restart Simulation";
+                        startSimBtn.style.opacity = '1';
+                        startSimBtn.style.cursor = 'pointer';
+                        isSimRunning = false;
+                    }, 1000);
+                    return;
+                }
+
+                const msgData = chatScenario[index];
+                
+                if (msgData.role === 'ai') {
+                    typingIndicator.style.display = 'flex';
+                    chatBody.appendChild(typingIndicator); 
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    
+                    setTimeout(() => {
+                        typingIndicator.style.display = 'none';
+                        appendMessage(msgData);
+                        runChatSequence(index + 1);
+                    }, 1200 + Math.random() * 800); 
+                } else {
+                    appendMessage(msgData);
+                    setTimeout(() => {
+                        runChatSequence(index + 1);
+                    }, 600);
+                }
+            }
+
+            function appendMessage(msgData) {
+                const msgEl = document.createElement('div');
+                msgEl.classList.add('chat-msg', msgData.role === 'user' ? 'msg-user' : 'msg-ai');
+                msgEl.textContent = msgData.text;
+                
+                chatBody.insertBefore(msgEl, typingIndicator);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+            
+            const simObserver = new IntersectionObserver((entries) => {
+                if(entries[0].isIntersecting && !isSimRunning && chatBody.querySelectorAll('.chat-msg').length === 0) {
+                    startSimBtn.click();
+                }
+            }, { threshold: 0.6 });
+            
+            simObserver.observe(document.getElementById('showcase'));
+
+            // 4. Animated Number Counters
+            const counters = document.querySelectorAll('.counter');
+            
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+
+                    if (entry.isIntersecting) {
+                        if (counter.dataset.animId) {
+                            cancelAnimationFrame(parseInt(counter.dataset.animId));
+                        }
+
+                        const duration = 2500; 
+                        let startTimestamp = null;
+
+                        const step = (timestamp) => {
+                            if (!startTimestamp) startTimestamp = timestamp;
+                            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                            const easeProgress = 1 - Math.pow(1 - progress, 4); 
+                            
+                            counter.innerText = Math.floor(easeProgress * target);
+                            
+                            if (progress < 1) {
+                                counter.dataset.animId = window.requestAnimationFrame(step);
+                            } else {
+                                counter.innerText = target;
+                                delete counter.dataset.animId;
+                            }
+                        };
+                        
+                        counter.dataset.animId = window.requestAnimationFrame(step);
+                        
+                    } else {
+                        if (counter.dataset.animId) {
+                            cancelAnimationFrame(parseInt(counter.dataset.animId));
+                            delete counter.dataset.animId;
+                        }
+                        counter.innerText = "0";
+                    }
+                });
+            }, { threshold: 0.5 }); 
+
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+
+            // 5. Magnetic CTA Buttons
+            const magneticBtns = document.querySelectorAll('.btn-cta');
+            magneticBtns.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) scale(1.02)`;
+                });
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = ``; 
+                });
+            });
+
+            // 6. Form Submission Logic (Secured via Node.js Server)
+            // Changed the scriptURL from direct Google Sheet to the secure Node.js endpoint
+            const scriptURL = '/api/submit';
+            const form = document.forms['submit-to-google-sheet'];
+            const formContent = document.getElementById('form-content');
+            const successScreen = document.getElementById('success-screen');
+            const submitBtn = document.getElementById('submit-btn');
+
+            // Unique ID Generator: Combines first 2 letters of name + last 6 digits of mobile + a small random string
+            function generateClientID(fullName, mobileNumber) {
+                const cleanName = fullName.replace(/[^a-zA-Z]/g, '');
+                const cleanMobile = mobileNumber.replace(/[^0-9]/g, '');
+
+                let namePart = cleanName.substring(0, 2).toUpperCase();
+                if (namePart.length < 2) namePart = (namePart + 'XX').substring(0, 2);
+
+                let mobilePart = cleanMobile.slice(-6);
+                if (mobilePart.length < 5) mobilePart = mobilePart.padStart(6, '0');
+
+                const randomPart = Math.random().toString(36).substring(2, 6).toUpperCase();
+                return `UID-${namePart}-${mobilePart}-${randomPart}`;
+            }
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                
+                // Show loading state
+                const originalBtnText = submitBtn.innerText;
+                submitBtn.innerText = 'Submitting...';
+                submitBtn.disabled = true;
+
+                // Capture values to generate Client ID
+                const nameVal = form.elements['Full Name'].value;
+                const mobileVal = form.elements['Mobile Number'].value;
+
+                // Set Unique Client ID in the hidden input field
+                document.getElementById('client-id-input').value = generateClientID(nameVal, mobileVal);
+
+                // Set Form Submission Date and Time
+                const now = new Date();
+                const formattedDate = now.toLocaleDateString('en-GB'); 
+                const formattedTime = now.toLocaleTimeString('en-US');
+
+                document.getElementById('submission-date-input').value = formattedDate;
+                document.getElementById('submission-time-input').value = formattedTime;
+
+                // Send data using fetch API to our secure backend (/api/submit)
+                // We use URLSearchParams to format it correctly for the Express urlencoded parser
+                const urlEncodedData = new URLSearchParams(new FormData(form));
+
+                fetch(scriptURL, { 
+                    method: 'POST', 
+                    body: urlEncodedData,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
+                    // Hide form and show custom success screen
+                    formContent.style.display = 'none';
+                    successScreen.style.display = 'block';
+                    
+                    // Reset Button state
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Something went wrong with the submission. Please try again.");
+                    
+                    // Reset Button state on error
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+            });
+
+            // Global function to reset the form and go back to initial state
+            window.resetForm = function() {
+                form.reset();
+                successScreen.style.display = 'none';
+                formContent.style.display = 'block';
+            };
+
+        });
+    </script>
+</body>
+</html>
+
